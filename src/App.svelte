@@ -1,5 +1,7 @@
 <script>
   import Bracket from "./Bracket.svelte";
+  import CoDBracket from "./CoDBracket.svelte";
+  import Home from "./Home.svelte";
 
 </script>
 <main>
@@ -11,38 +13,11 @@
     </div>
     <img src="nu_logo.png" alt="" height="78" style="padding: 12px;">
   </div>
-  <div>
-    <h3>Mobile Legends Tournament Bracket</h3>
-    <small>Last Updated: 11:40</small>
-  </div>
 </main>
+{#if window.location.href.endsWith("mlbb")}  
 <Bracket />
-
-<style>
-  main{
-    color: white;
-    text-align: center;
-  }
-  .title{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.8rem;
-    margin: 1rem 0;
-  }
-  h1, h3{
-    margin: 0;
-    margin-bottom: 6px;
-  }
-@media screen and (max-width: 576px){
-  main{
-    font-size: 0.8rem;
-  }
-  img{
-    height: 70px;
-  }
-  h1{
-    font-size: 1.2rem;
-  }
-}
-</style>
+{:else if window.location.href.endsWith("cod")}
+<CoDBracket />
+{:else}
+<Home />
+{/if}

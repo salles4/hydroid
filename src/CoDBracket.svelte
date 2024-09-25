@@ -2,59 +2,28 @@
   import { onValue, ref } from "firebase/database";
   import database from "./Firebase";
   import { updateTime } from "./store";
-  let mlData;
+  let codData;
 
   async function getData() {
-    const pathRef = ref(database, "mobileLegends/");
+    const pathRef = ref(database, "callOfDuty/");
     onValue(pathRef, (snapshot) => {
-      mlData = snapshot.val();
-      updateTime.set(mlData["updated"]);
+      codData = snapshot.val();
+      updateTime.set(codData["updated"]);
     });
   }
   getData();
 </script>
 
-{#if mlData}
+{#if codData}
   <div class="main">
-    <h3>Mobile Legends Tournament Bracket</h3>
-    <small>Last Updated: {mlData["updated"]}</small>
+    <h3>Call of Duty Tournament Bracket</h3>
+    <small>Last Updated: {codData["updated"]}</small>
   </div>
   <div class="theme theme-dark">
     <div class="bracket disable-image">
-      {#if mlData["round0"]}
-      <div class="column">
-        {#each mlData["round0"] as match}
-          <div
-            class="match {match.win == 0
-              ? match.team1 != '' || match.team2 != ''
-                ? 'winner-top winner-bottom'
-                : ''
-              : match.win == 1
-                ? 'winner-top'
-                : 'winner-bottom'}"
-          >
-            <div class="match-top team">
-              <span class="name">{match.team1}</span>
-              <!-- <span class="score">2</span> -->
-            </div>
-            <div class="match-bottom team">
-              <span class="name">{match.team2}</span>
-              <!-- <span class="score">1</span> -->
-            </div>
-            <div class="match-lines">
-              <div class="line one"></div>
-              <div class="line two"></div>
-            </div>
-            <div class="match-lines alt">
-              <div class="line one"></div>
-            </div>
-          </div>
-        {/each}
-        </div>
-      {/if}
       <!-- Round -->
       <div class="column one">
-        {#each mlData["round1"] as match}
+        {#each codData["round1"] as match}
           <div
             class="match {match.win == 0
               ? match.team1 != '' || match.team2 != ''
@@ -83,7 +52,7 @@
         {/each}
       </div>
       <div class="column two">
-        {#each mlData["round2"] as match}
+        {#each codData["round2"] as match}
           <div
             class="match {match.win == 0
               ? match.team1 != '' || match.team2 != ''
@@ -112,7 +81,7 @@
         {/each}
       </div>
       <div class="column three">
-        {#each mlData["round3"] as match}
+        {#each codData["round3"] as match}
           <div
             class="match {match.win == 0
               ? match.team1 != '' || match.team2 != ''
@@ -141,7 +110,7 @@
         {/each}
       </div>
       <div class="column four">
-        {#each mlData["round4"] as match}
+        {#each codData["round4"] as match}
           <div class="match winner">
             <div class="match-top team">
               <span class="name">{match.team1}</span>

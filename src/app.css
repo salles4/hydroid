@@ -1,6 +1,37 @@
-body{
+body {
   margin: 0;
   font-family: Helvetica, sans-serif;
   background: #0e1217;
   border-color: #040607;
+  
+}
+#app{
+  min-height: 100svh;
+}
+main, .main {
+  color: white;
+  text-align: center;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 0;
+}
+h1,
+h3 {
+  margin: 0;
+  margin-bottom: 6px;
+}
+@media screen and (max-width: 576px) {
+  main {
+    font-size: 0.8rem;
+  }
+  img {
+    height: 70px;
+  }
+  h1 {
+    font-size: 1.2rem;
+  }
 }
