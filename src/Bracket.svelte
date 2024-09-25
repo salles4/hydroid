@@ -26,8 +26,8 @@
         {#each mlData["round0"] as match}
           <div
             class="match {match.win == 0
-              ? match.team1 != '' || match.team2 != ''
-                ? 'winner-top winner-bottom'
+              ? match.team1 == '' || match.team2 == ''
+                ? 'invis'
                 : ''
               : match.win == 1
                 ? 'winner-top'
@@ -142,7 +142,13 @@
       </div>
       <div class="column four">
         {#each mlData["round4"] as match}
-          <div class="match winner">
+          <div class="match {match.win == 0
+              ? match.team1 != '' || match.team2 != ''
+                ? 'winner-top winner-bottom'
+                : ''
+              : match.win == 1
+                ? 'winner-top'
+                : 'winner-bottom'}">
             <div class="match-top team">
               <span class="name">{match.team1}</span>
               <!-- <span class="score">1</span> -->
@@ -161,6 +167,33 @@
           </div>
         {/each}
       </div>
+      {#if mlData["round5"]}
+      <div class="column five">
+        {#each mlData["round5"] as match}
+          <div class="match {match.win == 0
+              ? 'winner-top winner-bottom'
+              : match.win == 1
+                ? 'winner-top'
+                : 'winner-bottom'}">
+            <div class="match-top team">
+              <span class="name">{match.team1}</span>
+              <!-- <span class="score">1</span> -->
+            </div>
+            <div class="match-bottom team">
+              <span class="name">{match.team2}</span>
+              <!-- <span class="score">2</span> -->
+            </div>
+            <div class="match-lines">
+              <div class="line one"></div>
+              <div class="line two"></div>
+            </div>
+            <div class="match-lines alt">
+              <div class="line one"></div>
+            </div>
+          </div>
+        {/each}
+      </div>
+      {/if}
     </div>
   </div>
 {/if}
@@ -269,10 +302,13 @@
     height: 175px;
   }
   .column:nth-child(4) .match-lines .line.two {
-    height: 262px;
+    height: 400px;
   }
   .column:nth-child(5) .match-lines .line.two {
-    height: 349px;
+    height: 700px;
+  }
+  .column:nth-child(6) .match-lines .line.two {
+    height: 500px;
   }
   .disable-image .image,
   .disable-seed .seed,
@@ -330,5 +366,8 @@
   }
   .theme-dark .match .score {
     font-size: 14px;
+  }
+  .invis{
+    visibility: hidden !important;;
   }
 </style>
