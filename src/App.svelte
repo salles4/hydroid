@@ -34,4 +34,15 @@
     margin: 0;
     margin-bottom: 6px;
   }
+@media screen and (max-width: 576px){
+  main{
+    font-size: 0.8rem;
+  }
+  img{
+    height: 70px;
+  }
+  h1{
+    font-size: 1.2rem;
+  }
+}
 </style>
