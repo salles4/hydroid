@@ -1,11 +1,13 @@
+<script>
+  export let params;
+</script>
 <section>
-
   <div>
     View Tournament Bracket
   </div>
   <div class="container">
-  <a href="./mlbb">Mobile Legends</a>
-  <a href="./cod">Call of Duty</a>
+  <a href="./#/mlbb">Mobile Legends</a>
+  <a href="./#/cod">Call of Duty</a>
 </div>
 </section>
 <style>

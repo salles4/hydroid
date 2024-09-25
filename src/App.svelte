@@ -1,5 +1,6 @@
 <script>
-  import Bracket from "./Bracket.svelte";
+  import Router from "svelte-spa-router";
+import Bracket from "./Bracket.svelte";
   import CoDBracket from "./CoDBracket.svelte";
   import Home from "./Home.svelte";
 
@@ -14,10 +15,9 @@
     <img src="nu_logo.png" alt="" height="78" style="padding: 12px;">
   </div>
 </main>
-{#if window.location.href.endsWith("mlbb")}  
-<Bracket />
-{:else if window.location.href.endsWith("cod")}
-<CoDBracket />
-{:else}
-<Home />
-{/if}
+
+<Router routes={{
+  "/mlbb": Bracket,
+  "/cod": CoDBracket,
+  "*": Home,
+}} />
