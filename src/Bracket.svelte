@@ -163,7 +163,8 @@
   .bracket {
     padding: 0 40px;
     padding-bottom: 40px;
-    margin: 5px;
+    margin: 5px auto;
+    width: fit-content;
   }
   .bracket {
     display: flex;
