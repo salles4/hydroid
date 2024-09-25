@@ -2,8 +2,8 @@ import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_apiKey,
-  authDomain: import.meta.env.VITE_FIREBASE_authDomain,
+  apiKey: import.meta.env.VITE_FIREBASE_susi,
+  authDomain: import.meta.env.VITE_FIREBASE_domain,
   projectId: import.meta.env.VITE_FIREBASE_projectId,
   databaseURL: import.meta.env.VITE_FIREBASE_databaseURL,
   storageBucket: "hydroid-e92d4.appspot.com",
